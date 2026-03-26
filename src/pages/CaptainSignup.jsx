@@ -15,7 +15,7 @@ function CaptainSignup() {
            //  firstname:firstname,
            //  lastname:lastname,
            //u can also put this first and last name into a single object
-            username: {
+            fullName: {
               firstname:firstname,
               lastname:lastname
             },
@@ -40,7 +40,7 @@ function CaptainSignup() {
                        submitHandler(e)
                   }} >
 
-                   <h3 className="text-xl px-4 mb-4" >What's your name</h3>
+                   <h3 className="text-xl px-4 mb-4" >Enter Captain's name</h3>
                    <div className="flex gap-4 mb-2" >
                         <input
                         required
@@ -61,7 +61,7 @@ function CaptainSignup() {
                         />
                    </div>
 
-                     <h3 className="text-xl px-4 mb-4" >What's your email</h3>
+                     <h3 className="text-xl px-4 mb-4" >Enter Captain's email</h3>
                      <input
                         required
                         value={email}

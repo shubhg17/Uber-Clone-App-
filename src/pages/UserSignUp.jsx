@@ -14,7 +14,7 @@ function UserSignUp() {
         //  firstname:firstname,
         //  lastname:lastname,
         //u can also put this first and last name into a single object
-         username: {
+         fullName: {
            firstname:firstname,
            lastname:lastname
          },
