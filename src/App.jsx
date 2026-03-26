@@ -13,6 +13,7 @@ function App() {
      <>
         <Routes>
           {/* //mtlb jabh path / hoga then konsa element render hoga iska mtlb yeh hota hain */}
+          {/* //Hum iss project ko 2 logo ke liye bana rhe ha isliye yeh captain login aur signup bhi hain  */}
             <Route path="/" element={<Home/>} />
             <Route path="/login" element = {<UserLogin/>} />
             <Route path="/signup" element = {<UserSignUp/>} />
