@@ -6,6 +6,7 @@ export const UserDataContext = createContext()
 
 function UserContext({children}) {
 
+  // yeh data humne banaya hain 
     const [user , setUser] = useState({
         email:"",
         fullName: {
@@ -20,6 +21,7 @@ function UserContext({children}) {
       {/* <div>UserContext</div> */}
        <div>
           {/* {children} */}
+          {/* //with this u are providing data to its children as whenever we create context a provider is there which is use to provide context data to children or the pages/components same meaning   */}
            <UserDataContext.Provider value={[user , setUser]} >
               {children}
            </UserDataContext.Provider>

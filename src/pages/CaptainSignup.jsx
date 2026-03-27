@@ -7,11 +7,11 @@ function CaptainSignup() {
       const [lastname , setLastName] = useState("")
       const [email , setEmail] = useState("")
       const [password , setPassword] = useState("")
-      const [userdata , setuserdata] = useState({})
+      const [captaindata , setcaptaindata] = useState({})
    
       const submitHandler = (e)=> {
           e.preventDefault()
-          setuserdata({
+          setcaptaindata({
            //  firstname:firstname,
            //  lastname:lastname,
            //u can also put this first and last name into a single object
@@ -22,7 +22,7 @@ function CaptainSignup() {
             email:email,
             pass:password
           })
-          console.log(userdata)
+         //  console.log(captaindata)
           setFirstName("")
           setLastName("")
           setEmail("")
@@ -78,7 +78,7 @@ function CaptainSignup() {
                         placeholder="password"
                         className="w-full border bg-slate-200 px-5 py-2 rounded mb-4"
                      />
-                     <button className="bg-black text-white w-full mt-4 rounded py-2 font-bold mb-4" >Login</button>
+                     <button className="bg-black text-white w-full mt-4 rounded py-2 font-bold mb-4" >Create Account</button>
 
                      <p className="text-center">Already have a account?<Link to="/captainlogin" className="text-blue-600" >Login Here</Link></p>
                   </form>

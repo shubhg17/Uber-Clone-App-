@@ -8,6 +8,7 @@ import UserLogin from "./pages/UserLogin"
 import UserSignUp from "./pages/UserSignUp"
 import CaptainLogin from "./pages/CaptainLogin"
 import CaptainSignup from "./pages/CaptainSignup"
+import UberHome from "./pages/UberHome"
 function App() {
    return(
      <>
@@ -18,7 +19,8 @@ function App() {
             <Route path="/login" element = {<UserLogin/>} />
             <Route path="/signup" element = {<UserSignUp/>} />
             <Route path="/captainlogin" element = {<CaptainLogin/>} />
-          <Route path="/captainsignup" element = {<CaptainSignup/>} />  
+          <Route path="/captainsignup" element = {<CaptainSignup/>} /> 
+            <Route path="/uberhome" element={<UberHome/>} /> 
         </Routes>
      </>
    )

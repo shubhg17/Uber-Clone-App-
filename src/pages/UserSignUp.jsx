@@ -21,7 +21,7 @@ function UserSignUp() {
          email:email,
          pass:password
        })
-       console.log(userdata)
+      //  console.log(userdata)
        setFirstName("")
        setLastName("")
        setEmail("")
@@ -77,10 +77,10 @@ function UserSignUp() {
                         placeholder="password"
                         className="w-full border bg-slate-200 px-5 py-2 rounded mb-4"
                      />
-                     <button className="bg-black text-white w-full mt-4 rounded py-2 font-bold mb-4" >Login</button>
+                     <Link to="/uberhome"  className="bg-black flex items-center justify-center text-white w-full mt-4 rounded py-2 font-bold mb-4" >Create Account</Link>
 
                      <p className="text-center">Already have a account?<Link to="/login" className="text-blue-600" >Login Here</Link></p>
-                  </form>
+                  </form>  
               </div>
               <div>
                  <p className="text-xs leading-normal" >By proceeding you consent to get calls, WhatsApp or SMS messages , including by automated means from Uber and its affiliates to the number provided</p>

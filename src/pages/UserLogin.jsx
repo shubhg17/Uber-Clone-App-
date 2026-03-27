@@ -14,13 +14,13 @@ const UserLogin = ()=> {
       //agar prevent default nhi kroge toh page reload hojayega aur pta nhi chlega ki kaha gya so preventdefault ka use krenge 
        e.preventDefault()
       //  console.log(email , password)
-       //jabh from submit hogya toh email aur password wale input ko khali kardo
        setuserdata({
          //keys me kuch bhi askta ha yeh bas naam hain 
           email:email,
           password:password
        })
-       console.log(userdata)
+      //  console.log(userdata)
+       //jabh from submit hogya toh email aur password wale input ko khali kardo
        setEmail("")
        setPassword("")
    }

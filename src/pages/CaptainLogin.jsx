@@ -8,18 +8,18 @@ function CaptainLogin() {
     
        const [email , setEmail] = useState("")
        const [password , setPassword] = useState("")
-     // we created this state to store our userdata
+     // we created this state to store our captaindata
        const [captaindata , setcaptaindata] = useState({})
     
        const submitHandler =  (e)=> {
            e.preventDefault()
           //  console.log(email , password)
-           //jabh from submit hogya toh email aur password wale input ko khali kardo
-           setuserdata({
+           setcaptaindata({
               email:email,
               password:password
            })
-           console.log(captaindata)
+         //   console.log(captaindata)
+           //jabh from submit hogya toh email aur password wale input ko khali kardo
            setEmail("")
            setPassword("")
        }
