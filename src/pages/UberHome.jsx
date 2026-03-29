@@ -4,6 +4,7 @@ import {useState , useRef} from "react"
 import {useGSAP} from "@gsap/react" 
 import gsap from "gsap"
 import LocationSearchPanel from "../components/LocationSearchPanel"
+import ConfirmRide from "../components/ConfirmRide"
 function UberHome() {
     const [pickup , setPickup] = useState("")
     const [destination , setDestination] = useState("")
@@ -22,6 +23,9 @@ function UberHome() {
 
      //state for choose a find a trip div
      const [findtrip , setFindTrip] = useState(true);
+
+     //state for confirm ride div
+     const [confirmRide , setConfirmRide] = useState(false)
 
     const submitHandler = (e)=> {
        e.preventDefault();
@@ -74,6 +78,11 @@ function UberHome() {
      const handleCloseVehicle = ()=> {
            setVehiclePanelOpen(false);
            setFindTrip(true)
+     }
+
+     const handleConfirmRide = ()=> {
+          setVehiclePanelOpen(false);
+          setConfirmRide(true);
      }
 
 
@@ -132,7 +141,9 @@ function UberHome() {
           <div ref={vehiclePanelRef}  className={`p-2   absolute bottom-0 w-full bg-white ${vehiclePanelOpen?"block":"hidden"}`} >
                 <img onClick={handleCloseVehicle}  className="w-10 mb-2 absolute right-0 " src="https://imgs.search.brave.com/p_hdfw6nNGokVc2eVoq_xhtSveK03jg4PsElqkkrkO4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTIv/MTg5LzExMS9zbWFs/bC9kb3duLXJvdW5k/LWFycm93LWljb24t/dmVjdG9yLmpwZw" />
               <h3 className="text-3xl font-bold mb-4" >Choose a Vehicle</h3>
-               <div className=" flex  items-center border-2 border-slate-50 active:border-black mb-4 rounded-xl" >
+
+
+               <div onClick={handleConfirmRide} className=" flex  items-center border-2 border-slate-50 active:border-black mb-4 rounded-xl" >
                    <img className="w-20" src="https://imgs.search.brave.com/r-iBeHnYhTsjk0klDyrvMGv4rNVAyPpr5qMOUZg0mT8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjUv/MzExLzk2Mi9zbWFs/bC93aGl0ZS1zdXYt/b24tdHJhbnNwYXJl/bnQtYmFja2dyb3Vu/ZC0zZC1yZW5kZXJp/bmctaWxsdXN0cmF0/aW9uLWZyZWUtcG5n/LnBuZw" />
                    <div className="flex flex-col" >
                       <div className="flex  items-center "> 
@@ -144,7 +155,9 @@ function UberHome() {
                    </div>
                   <h4 className="text-lg font-semibold ml-8 px-4" >₹193.05</h4>
                </div>
-               <div className=" flex  items-center border-2 border-slate-50 active:border-black mb-4 rounded-xl" >
+
+
+               <div onClick={handleConfirmRide} className=" flex  items-center border-2 border-slate-50 active:border-black mb-4 rounded-xl" >
                    <img className="w-12 ml-4 rounded mr-4  " src="https://imgs.search.brave.com/mDAJkTzxBp1PBEe8weuikDE-CE_vqcmeG3ZKWtNS_L0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHNkLXByZW1pdW0v/cGVzc29hbC1kZS1l/bnRyZWdhcy1hLWFu/ZGFyLWRlLW1vdG9j/aWNsZXRhLWlsdXN0/cmFjYW8tcG5nLWlz/b2xhZGEtZW0tZnVu/ZG8tdHJhbnNwYXJl/bnRlXzEzMTE4MjIt/MzUzMy5qcGc_c2Vt/dD1haXNfaHlicmlk/Jnc9NzQw" />
                    <div className="flex flex-col " >
                       <div className="flex  items-center "> 
@@ -156,7 +169,9 @@ function UberHome() {
                    </div>
                   <h4 className="text-lg font-semibold ml-8 px-4" >₹65.19</h4>
                </div>
-               <div className=" flex  items-center border-2 border-slate-50 active:border-black mb-4 rounded-xl" >
+
+
+               <div onClick={handleConfirmRide} className=" flex  items-center border-2 border-slate-50 active:border-black mb-4 rounded-xl" >
                    <img className="w-12 ml-4 mr-4" src="https://imgs.search.brave.com/I6DkEsy3E9Yj5CnKninXhi3bfJRRaJbogGGxs2Svcz8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/Ym5haWwuaW1nYmlu/LmNvbS8xMi8yMS85/L3RocmVlLXdoZWVs/ZWQtbW90b3ItdmVo/aWNsZS15ZWxsb3ct/YXV0by1yaWNrc2hh/dy1mb3ItY2l0eS10/cmFuc3BvcnQtSGJV/TUxrVVRfdC5qcGc" />
                    <div className="flex flex-col" >
                       <div className="flex  items-center "> 
@@ -169,6 +184,11 @@ function UberHome() {
                   <h4 className="text-lg font-semibold ml-20 px-4" >₹120.05</h4>
                </div>
           </div>
+
+{/* //yeh confirm ride bhi ek panel hi hone wala hain */}
+              <div className={`${confirmRide ? "block" : "hidden"}`} >
+                <ConfirmRide/>
+              </div>
 
         </div>
      </>
