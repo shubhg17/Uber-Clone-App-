@@ -1,11 +1,21 @@
 import React from "react"
 
-function ConfirmRide({confirmYourRide}) {
-    return(
-       <>
-         <div className="p-5 bg-white absolute bottom-0">
-              <h3 className="text-2xl font-bold" >Confirm your Ride </h3>
-              <img className="mb-4" src="https://imgs.search.brave.com/9HwfkV3gYqKfoIw-njfNMWB-Qf7ISptCuL-npzeIgQI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvY2FyLXNoYXJp/bmctdGF4aS1zZXJ2/aWNlLWNvbmNlcHQt/dmVjdG9yLWlsbHVz/dHJhdGlvbl8zNTcy/NTctNTUyLmpwZz9z/ZW10PWFpc19oeWJy/aWQmdz03NDAmcT04/MA" />
+ const RideAccepted =  () => {
+   return (
+     <> 
+      <div>
+             <div className="p-5 bg-white absolute bottom-0 w-full">
+              <h3 className="text-2xl font-bold mb-4" >Ride Accepted</h3>
+              <div className="flex justify-between border-b-2">
+                  <img  className="mb-4 w-20" src="https://imgs.search.brave.com/0q9X-rrLIsEAxYpErug-I_FJAI5earXpAKjrb1J_Bps/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjkv/OTEzLzE0MS9zbWFs/bC93aGl0ZS1jaXR5/LWNhci1pc29sYXRl/ZC1vbi10cmFuc3Bh/cmVudC1iYWNrZ3Jv/dW5kLTNkLXJlbmRl/cmluZy1pbGx1c3Ry/YXRpb24tZnJlZS1w/bmcucG5n" />
+
+                    <div className="font-semibold mb-4  " >
+                      <p>Driver: Rahul Sharma ⭐ 4.8
+                      <p className="text-slate-400" >Car: Swift Dzire - DL 8C 1234</p>
+                      <p className="text-red-800" >Arriving in: 2 mins</p>
+                      </p>
+                    </div>
+              </div>
 
               <div className="flex mb-5 border-b-2" >
                   <img className="w-10" src="https://imgs.search.brave.com/Yjz7D13PI2N9Jif8NIMRMJO5OYM2xE42fL5P2jjoI5k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNDgv/MzM2LzM4NC9zbWFs/bC9wcm9maWxlLXVz/ZXItaWNvbi1wbmcu/cG5n" />
@@ -31,10 +41,10 @@ function ConfirmRide({confirmYourRide}) {
                   </div>
               </div>
 
-              <button onClick={confirmYourRide}  className="text-lg text-white bg-green-600 w-full rounded-lg py-1 font-bold" >Confirm</button>
-
          </div>
-       </>
-    )
+      </div>
+     </>
+   )
 }
-export default ConfirmRide
+
+export default RideAccepted

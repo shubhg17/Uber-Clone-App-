@@ -5,6 +5,9 @@ import {useGSAP} from "@gsap/react"
 import gsap from "gsap"
 import LocationSearchPanel from "../components/LocationSearchPanel"
 import ConfirmRide from "../components/ConfirmRide"
+import LookingForDriver from "../components/LookingForDriver"
+import RideAccepted from "../components/RideAccepted"
+import UserRiding from "../components/UserRiding"
 function UberHome() {
     const [pickup , setPickup] = useState("")
     const [destination , setDestination] = useState("")
@@ -26,6 +29,18 @@ function UberHome() {
 
      //state for confirm ride div
      const [confirmRide , setConfirmRide] = useState(false)
+
+     //state for lookingfordriver div
+     const [lookingfordriver , setlookingfordriver] = useState(false)
+
+     //state for rideaccepted div
+     const [rideAccepted , setRideAccepted] = useState(false)
+
+     //state for userriding div we are also doing this with states not routing as for that we need to learn useNavigate hook thats why doing this also with states
+     const [userRiding , setUserRiding] = useState(false)
+
+     //create a reference for timer This is just a box where we store timer
+     const timerRef = useRef(null)
 
     const submitHandler = (e)=> {
        e.preventDefault();
@@ -83,6 +98,41 @@ function UberHome() {
      const handleConfirmRide = ()=> {
           setVehiclePanelOpen(false);
           setConfirmRide(true);
+     }
+
+     const confirmYourRide = ()=> {
+            setConfirmRide(false)
+            setlookingfordriver(true)
+
+      // simulate backend response
+      //This line means: “After 3 seconds, I WILL run this code — no matter what” this is what setTimeout is doing 
+        timerRef.current =  setTimeout(() => {
+            setlookingfordriver(false)
+            setRideAccepted(true)
+         }, 3000) // 3 sec delay
+     
+     }
+
+     function cancelRide() {
+         setlookingfordriver(false)
+         setFindTrip(true)
+
+        // stop backend simulation
+
+        if(timerRef.current) {
+         //This tells JS: “Stop that timer — don’t run it anymore”
+          clearTimeout(timerRef.current)
+        }
+
+     }
+
+     const handleUserRiding = ()=> {
+         
+
+          setTimeout(()=> {
+           setRideAccepted(false)
+           setUserRiding(true)
+          } ,3000)
      }
 
 
@@ -187,7 +237,22 @@ function UberHome() {
 
 {/* //yeh confirm ride bhi ek panel hi hone wala hain */}
               <div className={`${confirmRide ? "block" : "hidden"}`} >
-                <ConfirmRide/>
+                <ConfirmRide  confirmYourRide = {confirmYourRide} />
+              </div>
+
+{/* //yeh wala div hain where we are looking for drivers */}
+              <div className={`${lookingfordriver ? "block" : "hidden"}`} >
+                <LookingForDriver cancelRide = {cancelRide} />
+              </div>
+
+              <div className={`${rideAccepted ? "block" : "hidden"}`} >
+                 <RideAccepted/>
+                 { rideAccepted &&   handleUserRiding()}
+              </div>
+
+              <div className={`${userRiding ? "block" : "hidden"}`} >
+                 <UserRiding/>
+                 
               </div>
 
         </div>

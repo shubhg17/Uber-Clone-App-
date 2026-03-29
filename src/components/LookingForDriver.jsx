@@ -1,10 +1,11 @@
 import React from "react"
 
-function ConfirmRide({confirmYourRide}) {
-    return(
-       <>
-         <div className="p-5 bg-white absolute bottom-0">
-              <h3 className="text-2xl font-bold" >Confirm your Ride </h3>
+function LookingForDriver({cancelRide}) {
+   return (
+     <>
+      <div>
+          <div className="p-5 bg-white absolute bottom-0">
+              <h3 className="text-2xl font-bold" >Looking for a Driver</h3>
               <img className="mb-4" src="https://imgs.search.brave.com/9HwfkV3gYqKfoIw-njfNMWB-Qf7ISptCuL-npzeIgQI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvY2FyLXNoYXJp/bmctdGF4aS1zZXJ2/aWNlLWNvbmNlcHQt/dmVjdG9yLWlsbHVz/dHJhdGlvbl8zNTcy/NTctNTUyLmpwZz9z/ZW10PWFpc19oeWJy/aWQmdz03NDAmcT04/MA" />
 
               <div className="flex mb-5 border-b-2" >
@@ -31,10 +32,11 @@ function ConfirmRide({confirmYourRide}) {
                   </div>
               </div>
 
-              <button onClick={confirmYourRide}  className="text-lg text-white bg-green-600 w-full rounded-lg py-1 font-bold" >Confirm</button>
+              <button onClick={cancelRide} className="text-lg text-white bg-red-700 w-full rounded-lg py-1 font-bold" >Cancel</button>
 
          </div>
-       </>
-    )
+      </div>
+     </>
+   )
 }
-export default ConfirmRide
+export default LookingForDriver
