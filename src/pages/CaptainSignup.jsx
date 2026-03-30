@@ -78,7 +78,7 @@ function CaptainSignup() {
                         placeholder="password"
                         className="w-full border bg-slate-200 px-5 py-2 rounded mb-4"
                      />
-                     <button className="bg-black text-white w-full mt-4 rounded py-2 font-bold mb-4" >Create Account</button>
+                     <Link to="/captainhome" className="bg-black flex items-center justify-center text-white w-full mt-4 rounded py-2 font-bold mb-4" >Create Account</Link>
 
                      <p className="text-center">Already have a account?<Link to="/captainlogin" className="text-blue-600" >Login Here</Link></p>
                   </form>

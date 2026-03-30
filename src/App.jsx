@@ -9,6 +9,7 @@ import UserSignUp from "./pages/UserSignUp"
 import CaptainLogin from "./pages/CaptainLogin"
 import CaptainSignup from "./pages/CaptainSignup"
 import UberHome from "./pages/UberHome"
+import CaptainHome from "./pages/CaptainHome"
 function App() {
    return(
      <>
@@ -21,6 +22,7 @@ function App() {
             <Route path="/captainlogin" element = {<CaptainLogin/>} />
           <Route path="/captainsignup" element = {<CaptainSignup/>} /> 
             <Route path="/uberhome" element={<UberHome/>} /> 
+            <Route path="/captainhome" element={<CaptainHome/>} />
         </Routes>
      </>
    )
