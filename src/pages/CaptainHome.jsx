@@ -14,6 +14,7 @@ function CaptainHome() {
     const timer = useRef(null)
 
     useEffect(()=> {
+      //jabh component/page load hoga tabh toh mujhe apni captaindetails show krni hai so true krdiya but 3 secs ke baad usko hide krna ha toh voh setTimeout wale function se hojayega
        setCaptainDetails(true)
 
        timer.current =  setTimeout(()=> {
@@ -44,7 +45,7 @@ function CaptainHome() {
 
               <div className={`${captaindetails ? "block" : "hidden"}`} >
                 <CaptainDetails/>
-              </div>
+              </div>  
 
               <div className={`${rideforCaptain ? "block" : "hidden"}`} >
                 <RideForCaptain/>
