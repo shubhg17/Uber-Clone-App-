@@ -4,10 +4,14 @@ import { Link } from "react-router-dom"
 import RideForCaptain from "./RideForCaptain"
 import {useState , useEffect , useRef} from "react"
 import CaptainDetails from "./CaptainDetails"
+import AcceptRideForCaptain from "../components/AcceptRideForCaptain"
 function CaptainHome() {
    
    const [captaindetails , setCaptainDetails] = useState(false);
    const [rideforCaptain , setRideForCaptain] = useState(false);
+   const [acceptRideCaptain , setAcceptRideForCaptain] = useState(false)
+  //  const [confirmedRideforCaptain , setConfirmRideForCaptain] = useState(false)
+   const [ignoreRideforCaptain , setIgnoreRideForCaptain] = useState(false)
 
    //hum logic ko function call se nhi krenge useeffect se krenge as it is more effective and with function call u are encountering multiple times re rendering which is a bad practice and this will run only once as dependency array is empty 
 
@@ -27,6 +31,26 @@ function CaptainHome() {
    }  
 
     } , [])
+
+    const acceptedRideCaptain = ()=> {
+        setRideForCaptain(false);
+        setAcceptRideForCaptain(true)
+    }
+
+    const ignoreRideCaptain = ()=> {
+        setRideForCaptain(false);
+        setCaptainDetails(true)
+    }
+
+    // const handleConfirmRide = () => {
+        
+    // }
+
+    const handleIgnoreRide = ()=> {
+       setAcceptRideForCaptain(false)
+       setCaptainDetails(true)
+    }
+    
    
 
   return (
@@ -48,8 +72,12 @@ function CaptainHome() {
               </div>  
 
               <div className={`${rideforCaptain ? "block" : "hidden"}`} >
-                <RideForCaptain/>
+                <RideForCaptain acceptedRideCaptain={acceptedRideCaptain} ignoreRideCaptain={ignoreRideCaptain} />
               </div> 
+
+              <div className={acceptRideCaptain ? "block" : "hidden"} >
+                <AcceptRideForCaptain handleIgnoreRide={handleIgnoreRide} />
+              </div>
 
      </div>
     </>

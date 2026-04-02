@@ -10,6 +10,7 @@ import CaptainLogin from "./pages/CaptainLogin"
 import CaptainSignup from "./pages/CaptainSignup"
 import UberHome from "./pages/UberHome"
 import CaptainHome from "./pages/CaptainHome"
+import CaptainRiding from "./pages/CaptainRiding"
 function App() {
    return(
      <>
@@ -23,6 +24,7 @@ function App() {
           <Route path="/captainsignup" element = {<CaptainSignup/>} /> 
             <Route path="/uberhome" element={<UberHome/>} /> 
             <Route path="/captainhome" element={<CaptainHome/>} />
+            <Route path="/captainriding" element={<CaptainRiding/>} />
         </Routes>
      </>
    )

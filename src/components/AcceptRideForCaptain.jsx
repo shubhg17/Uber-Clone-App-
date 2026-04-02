@@ -1,11 +1,20 @@
 import React from "react"
+import {Link} from "react-router-dom"
+import {useState} from "react"
+function AcceptRideForCaptain({handleIgnoreRide}) {
 
-function RideForCaptain({acceptedRideCaptain , ignoreRideCaptain}) {
-     return (
-       <>
-         <div className="absolute bottom-0 bg-white w-full" >
+  const [otp , setOtp] = useState("")
+
+   const submitHandler = (e)=> {
+       e.preventDefault()
+   }
+
+   return (
+     <>
+      <div>
+        <div className="absolute bottom-0 bg-white w-full h-screen z-20" >
              <div className="p-2 bg-white absolute bottom-0 w-full">
-              <h3 className="text-2xl font-bold" >New Ride Available</h3>
+              <h3 className="text-2xl font-bold" >Confirm This Ride To Start</h3>
             
             <div>
                    <div className="p-4 bg-yellow-400 rounded-xl mb-4">
@@ -47,14 +56,30 @@ function RideForCaptain({acceptedRideCaptain , ignoreRideCaptain}) {
                   </div>
               </div>
 
-              <button onClick={acceptedRideCaptain}   className="text-lg text-white bg-green-600 w-full rounded-lg py-1 font-bold mb-4" >Accept</button>
+           
+          <form onSubmit={(e)=>{
+                    submitHandler(e)
+                  }} >
 
-              <button onClick={ignoreRideCaptain}   className="text-lg text-white bg-red-600 w-full rounded-lg py-1 font-bold" >Ignore</button>
+                        <input
+                              value={otp}
+                              onChange={(e)=>setOtp(e.target.value)}
+                              required
+                              type="text"
+                              placeholder="Enter OTP"
+                              className="bg-slate-300 rounded-xl mb-4 px-10 py-4 w-full text-lg placeholder:text-lg placeholder:text-black"
+                          />
+
+                      <Link to="/captainriding"    className="flex justify-center items-center text-lg text-white bg-green-600 w-full rounded-lg  py-3 font-bold mb-4" >Confirm</Link>
+
+                      <button onClick={handleIgnoreRide}   className="text-lg text-white bg-red-600 w-full rounded-lg py-3 font-bold" >Cancel</button>
+
+          </form>
 
          </div>
          </div>
-       </>
-     )
+      </div>
+     </>
+   )
 }
-
-export default RideForCaptain
+export default AcceptRideForCaptain
